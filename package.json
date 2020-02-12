@@ -7,9 +7,22 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@vue/eslint-config-standard": "^5.1.1",
+    "axios": "^0.19.2",
+    "babel-polyfill": "^6.26.0",
     "core-js": "^3.6.4",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-vue": "^6.1.2",
+    "feather-icons": "^4.26.0",
+    "url-search-params-polyfill": "^8.0.0",
     "vue": "^2.6.11",
     "vue-router": "^3.1.5",
+    "vue2-touch-events": "^2.1.0",
     "vuex": "^3.1.2"
   },
   "devDependencies": {
@@ -17,6 +30,11 @@
     "@vue/cli-plugin-router": "~4.2.0",
     "@vue/cli-plugin-vuex": "~4.2.0",
     "@vue/cli-service": "~4.2.0",
+    "@vue/eslint-config-standard": "^5.1.1",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.8.0",
+    "eslint-plugin-vue": "^6.1.2",
+    "prettier": "^1.19.1",
     "vue-template-compiler": "^2.6.11"
   }
 }

@@ -1,27 +1,75 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'home',
+    component: () => import('../views/home'),
+    meta: { keepAlive: false, },
+    redirect: '/index',
+    children: [
+      {
+        path: 'index',
+        name: 'index',
+        component: () => import('../views/index'),
+        meta: {
+          keepAlive: false,
+          title: 'Home Page',
+        },
+      },
+      {
+        path: 'order',
+        name: 'order',
+        component: () => import('../views/order'),
+        meta: {
+          keepAlive: false,
+          title: 'Order',
+        },
+      },
+      {
+        path: 'reward',
+        name: 'reward',
+        component: () => import('../views/reward'),
+        meta: {
+          keepAlive: false,
+          title: 'Reward',
+        },
+      },
+      {
+        path: 'user',
+        name: 'user',
+        component: () => import('../views/user'),
+        meta: {
+          keepAlive: false,
+          title: 'Account',
+        },
+      }
+    ],
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    name: 'page404',
+    path: '/page404',
+    component: () => import('../views/page404'),
+  },
+  {
+    path: '*', // 页面不存在的情况下会跳到404页面
+    redirect: '/page404',
+  },
+  {
+    path: '/sample',
+    component: () => import('../views/sample'),
+  },
+  {
+    path: '/sample/getProducts',
+    component: () => import('../views/sample/getProducts'),
   }
-]
+];
 
 const router = new VueRouter({
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

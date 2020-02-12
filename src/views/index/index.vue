@@ -13,15 +13,15 @@
     </transition>
     <div class="banner-wrap">
       <div class="swiper-container">
-        <div class="swiper-wrapper">
+        <div class="swiper-wrapper" v-lazy-container="{ selector: 'img' }">
           <div class="swiper-slide">
-            <img src="../../assets/images/banner/1.jpg" alt="" /></div>
+            <img data-src="https://pangge.app/images/banner/1.jpg" alt="" /></div>
           <div class="swiper-slide">
-            <img src="../../assets/images/banner/2.jpg" alt="" /></div>
+            <img data-src="https://pangge.app/images/banner/2.jpg" alt="" /></div>
           <div class="swiper-slide">
-            <img src="../../assets/images/banner/3.jpg" alt="" /></div>
+            <img data-src="https://pangge.app/images/banner/3.jpg" alt="" /></div>
           <div class="swiper-slide">
-            <img src="../../assets/images/banner/4.jpg" alt="" /></div>
+            <img data-src="https://pangge.app/images/banner/4.jpg" alt="" /></div>
         </div>
         <div class="swiper-pagination"></div>
         <!--        <div class="swiper-button-prev"></div>-->
@@ -58,7 +58,7 @@
           <div class="products-row">
             <div class="products-column" :class="{side: index%2!==0}">
               <div class="product-img">
-                <img :src="product['img']" alt="" />
+                <img v-lazy="product['img']" alt="" />
               </div>
               <div class="product-title">{{product['pname']}}</div>
               <div class="product-des">
@@ -67,7 +67,7 @@
               </div>
               <div class="order-button">SELECT</div>
               <div class="product-tag" style="display: none">
-                <img :src="product['tag']" alt="" />
+                <img v-lazy="product['tag']" alt="" />
               </div>
               <div class="product-flag" v-if="product.flag!==''">
                 <div class="product-flag-text">{{product.flag}}</div>
@@ -75,7 +75,7 @@
             </div>
             <div class="products-column" v-if="index+1<item.items.length" :class="{side: index%2!==1}">
               <div class="product-img">
-                <img :src="item.items[index+1]['img']" alt="" />
+                <img v-lazy="item.items[index+1]['img']" alt="" />
               </div>
               <div class="product-title">{{item.items[index+1]['pname']}}</div>
               <div class="product-des">
@@ -84,7 +84,7 @@
               </div>
               <div class="order-button">SELECT</div>
               <div class="product-tag" style="display: none">
-                <img :src="item.items[index+1]['tag']" alt="" />
+                <img v-lazy="item.items[index+1]['tag']" alt="" />
               </div>
               <div class="product-flag" v-if="item.items[index+1].flag!==''">
                 <div class="product-flag-text">{{item.items[index+1].flag}}</div>

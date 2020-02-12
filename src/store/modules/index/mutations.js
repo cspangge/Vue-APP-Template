@@ -4,7 +4,7 @@ import * as types from './mutation-types';
 const mutations = {
   [types.SET_PRODUCTS] (state, payload) {
     state.products = payload.products;
-    console.log(state.products);
+    // console.log(state.products);
   },
 };
 

@@ -2,7 +2,15 @@
   <div style="color: whitesmoke">
     <div>Demo</div>
     <div>
-      <div v-for="(item, index) in products" :key="index">{{ item['classification'] }}</div>
+      <div v-for="(item, index) in products" :key="index">
+        {{ item['classification'] }}
+        <div v-for="(product, index) in item.items" :key="index">
+          {{ product.pid }}
+          {{ product.name }}
+          {{ product.price }}
+          <img :src="product.img" alt="" />
+        </div>
+      </div>
     </div>
   </div>
 </template>

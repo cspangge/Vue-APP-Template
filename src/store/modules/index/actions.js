@@ -9,9 +9,9 @@ const actions = {
       if (res.code === 200) {
         conText.commit(types.SET_PRODUCTS, { products: res.data, });
         // 判断success是否存在
-        if (payload.success) {
-          payload.success();
-        }
+        // if (payload.success) {
+        //   payload.success();
+        // }
       }
     });
   },

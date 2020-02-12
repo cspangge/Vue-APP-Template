@@ -46,55 +46,68 @@
         <li>Points</li>
       </ul>
     </div>
-    <template v-for="(item, index) in products">
-      <div class="display-products">
-        <div class="classify-name color-0" :key="index">
-          <strong>{{ item['cname'] }}</strong>
-        </div>
-        <div class="hr-line">
-          <hr />
-        </div>
-        <template v-for="(product, index) in item.items" v-if="index%2===0">
-          <div class="products-row">
-            <div class="products-column" :class="{side: index%2!==0}">
-              <div class="product-img">
-                <img :src="product['img']" alt="" />
-              </div>
-              <div class="product-title">{{product['pname']}}</div>
-              <div class="product-des">
-                <div class="product-price">From ${{product['price']}}*</div>
-                <div class="product-energy">{{product['energy']}}kJ^</div>
-              </div>
-              <div class="order-button">SELECT</div>
-              <div class="product-tag" style="display: none">
-                <img :src="product['tag']" alt="" />
-              </div>
-              <div class="product-flag" v-if="product.flag!==''">
-                <div class="product-flag-text">{{product.flag}}</div>
-              </div>
-            </div>
-            <div class="products-column" v-if="index+1<item.items.length" :class="{side: index%2!==1}">
-              <div class="product-img">
-                <img :src="item.items[index+1]['img']" alt="" />
-              </div>
-              <div class="product-title">{{item.items[index+1]['pname']}}</div>
-              <div class="product-des">
-                <div class="product-price">From ${{item.items[index+1]['price']}}*</div>
-                <div class="product-energy">{{item.items[index+1]['energy']}}kJ^</div>
-              </div>
-              <div class="order-button">SELECT</div>
-              <div class="product-tag" style="display: none">
-                <img :src="item.items[index+1]['tag']" alt="" />
-              </div>
-              <div class="product-flag" v-if="item.items[index+1].flag!==''">
-                <div class="product-flag-text">{{item.items[index+1].flag}}</div>
-              </div>
-            </div>
-            <div class="products-column" v-if="index+1>=item.items.length" :class="{side: index%2!==1}"></div>
-          </div>
-        </template>
+    <div class="display-products">
+      <div class="classify-name color-0">
+        <strong>PIZZA</strong>
       </div>
-    </template>
+      <div class="hr-line">
+        <hr />
+      </div>
+      <div class="products-row">
+        <div class="products-column">
+          <div class="product-img">
+            <img src="../../assets/images/pizza/pic1.png" alt="" />
+          </div>
+          <div class="product-title">Pepperoini</div>
+          <div class="product-des">
+            <div class="product-price">From $5.25*</div>
+            <div class="product-energy">2620kJ^</div>
+          </div>
+          <div class="order-button">SELECT</div>
+          <div class="product-tag" style="display: none">
+            <img src="../../assets/images/nav-banner/diy.svg" alt="" />
+          </div>
+          <div class="product-flag">
+            <div class="product-flag-text">NEW</div>
+          </div>
+        </div>
+        <div class="products-column side">
+          <div class="product-img">
+            <img src="../../assets/images/pizza/pic1.png" alt="" />
+          </div>
+          <div class="product-title">Pepperoini</div>
+          <div class="product-des">
+            <div class="product-price">From $5.25*</div>
+            <div class="product-energy">2620kJ^</div>
+          </div>
+          <div class="order-button">SELECT</div>
+        </div>
+      </div>
+      <div class="products-row">
+        <div class="products-column">
+          <div class="product-img">
+            <img src="../../assets/images/pizza/pic1.png" alt="" />
+          </div>
+          <div class="product-title">Sweet Potato, Chicken & Bacon Mess</div>
+          <div class="product-des">
+            <div class="product-price">From $5.25*</div>
+            <div class="product-energy">2620kJ^</div>
+          </div>
+          <div class="order-button">SELECT</div>
+        </div>
+        <div class="products-column side">
+          <div class="product-img">
+            <img src="../../assets/images/pizza/pic1.png" alt="" />
+          </div>
+          <div class="product-title">Bourbon BBQ chicken wings</div>
+          <div class="product-des">
+            <div class="product-price">From $5.25*</div>
+            <div class="product-energy">2620kJ^</div>
+          </div>
+          <div class="order-button">SELECT</div>
+        </div>
+      </div>
+    </div>
     <div style="height: 1.3rem;"></div>
   </div>
 </template>
@@ -143,18 +156,9 @@
           }
         }
       },
-      ...mapActions({
-        getProductsData: 'index/getProducts',
-      }),
-    },
-    computed: {
-      ...mapState({
-        products: (state) => state.index.products,
-      }),
     },
     beforeCreate () {},
     created () {
-      this.getProductsData();
     },
     beforeMount () {},
     mounted () {
